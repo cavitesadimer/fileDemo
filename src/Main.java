@@ -1,11 +1,12 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
     //createFile();
     //getFileInfo();
+    readFile();
+    writeFile();
     readFile();
 
     }
@@ -41,6 +42,17 @@ public class Main {
             reader.close();
         } catch (FileNotFoundException e) {
             System.out.println("Dosya bulunamadi :(");
+        }
+    }
+    public static void writeFile(){
+        try {
+           BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Esad\\Desktop\\dosyaIslemleri.txt",true)) ;
+            writer.newLine();
+           writer.write("Bu yaziyi dosya icinde okuyabiliyorsaniz dosyaya yazma islemini dogru yaptiniz demektir.");
+            System.out.println("Dosyaya yazildi");
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("Hata!!!");
         }
     }
 }
