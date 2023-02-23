@@ -1,9 +1,12 @@
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-    createFile();
-    getFileInfo();
+    //createFile();
+    //getFileInfo();
+    readFile();
 
     }
     public static void createFile(){
@@ -26,5 +29,18 @@ public class Main {
             System.out.println("Dosya boyutu(byte): "+file.length());
 
         }else System.out.println("ERROR!!! Dosya mevcut degil");
+    }
+    public static void readFile(){
+        File file = new File("C:\\Users\\Esad\\Desktop\\dosyaIslemleri.txt");
+        try {
+            Scanner reader = new Scanner(file);
+            while(reader.hasNextLine()){
+                String line = reader.nextLine();
+                System.out.println(line);
+            }
+            reader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Dosya bulunamadi :(");
+        }
     }
 }
